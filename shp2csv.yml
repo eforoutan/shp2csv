@@ -1,0 +1,4 @@
+shapefile:
+  class: File
+  path: OK_Counties.zip
+output_csv: "output.csv"
