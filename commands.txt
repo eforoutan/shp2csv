@@ -1,5 +1,6 @@
 python shp2csv.py "C:/CWL/spatial/shp2csv/OK_Counties/OK_Counties.shp" "C:/CWL/spatial/shp2csv/OK_Counties.csv"
 
+python shp2csv.py "C:/CWL/spatial/shp2csv/OK_Counties.geojson" "output.csv"
 
 docker build -t eforoutan/shp2csv:latest .
 docker login

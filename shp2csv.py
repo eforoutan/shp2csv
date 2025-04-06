@@ -1,18 +1,20 @@
 import geopandas as gpd
 import sys
 
-def shp2csv(input_shapefile, output_csv):
+def shp2csv(input_shapefile, csv_file_name):
 
-    shapefile_data = gpd.read_file(input_shapefile)   
+    shapefile_data = gpd.read_file(input_shapefile)
     attribute_data = shapefile_data.drop(columns='geometry')
+    output_csv = csv_file_name
     attribute_data.to_csv(output_csv, index=False)  
-
-    print(f"Convert {input_shapefile} to {output_csv}")
+    
+    return output_csv
 
 
 if __name__ == "__main__":
-    input_shapefile = sys.argv[1]
-    output_csv = sys.argv[2]
 
-    shp2csv(input_shapefile , output_csv )
+    input_shapefile = sys.argv[1]
+    csv_file_name = sys.argv[2]
+
+    output_csv = shp2csv(input_shapefile , csv_file_name )
 

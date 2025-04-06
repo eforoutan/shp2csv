@@ -6,4 +6,4 @@ WORKDIR /app
 
 COPY shp2csv.py /app/shp2csv.py
 
-CMD [ "python3" , "/app/shp2csv.py" ]
+ENTRYPOINT [ "python3" , "/app/shp2csv.py" ]

@@ -1,4 +1,6 @@
 shapefile:
   class: File
-  path: OK_Counties.zip
-output_csv: "output.csv"
+
+  path: OK_Counties.geojson
+
+csv_file_name: "output.csv"

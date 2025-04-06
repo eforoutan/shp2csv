@@ -1,34 +1,30 @@
 cwlVersion: v1.2
 class: CommandLineTool
+
 hints:
-  DockerRequirement:
-    dockerPull: eforoutan/shp2csv:latest
   NetworkAccess:
     networkAccess: true
+  DockerRequirement:
+    dockerPull: eforoutan/shp2csv:latest
+
 
 inputs:
   shapefile:
-    type: Directory
+    type:
+      - File
+      - Directory
     inputBinding:
       position: 1
 
-  output_csv:
+  csv_file_name:
     type: string
+    default: default.csv
     inputBinding:
       position: 2
 
 
 outputs:
-  csv_file:
+  output_csv:
     type: File
     outputBinding:
-      glob: $(inputs.output_csv)
-
-
-requirements:
-  InitialWorkDirRequirement:
-    listing:
-      - entryname: shapefile.shp
-        entry: $(inputs.shapefile.path)
-
-baseCommand: ["python", "/app/shp2csv.py"]   
+      glob: "$(inputs.csv_file_name)"
